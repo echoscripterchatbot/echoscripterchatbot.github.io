@@ -3,7 +3,7 @@ import replace from '../homanishner/info.js'
 const textArea = document.querySelector("textarea");
 const activeChat = document.getElementById("chatwrite");
 const selectDiv = document.getElementById('select')
-const name = "BetaGPT";
+const name = "EchoScripter";
 const startSelectors = ['HI', 'Can you help me']
 const stack= [];
 let functional = {f: false};
