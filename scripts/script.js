@@ -15,8 +15,9 @@ textArea.addEventListener('input', (e) => {
         selectDiv.classList.remove('write')
     }
 })
-textArea.addEventListener("keyup", (e) => {
+textArea.addEventListener("keydown", (e) => {
     if(e.key === 'Enter'){
+        e.preventDefault()
         const t = (textArea.value.trim());
         if(!t.length){
             return;
