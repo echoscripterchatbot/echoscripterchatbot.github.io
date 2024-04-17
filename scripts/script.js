@@ -5,8 +5,9 @@ const textArea = document.querySelector("textarea");
 const activeChat = document.getElementById("chatwrite");
 const selectDiv = document.getElementById('select')
 const generationElmProcessAnim  = document.getElementById("gen")
-const startSelectors = ['HI', 'Can you help me']
+const startSelectors = ['HI', 'Can you help me', "Who are you?"]
 const stack= [startSelectors];
+let sending = false;
 let functional = {f: false};
 // textArea.addEventListener('input', (e) => {
 //     if(e.currentTarget.value){
@@ -17,7 +18,7 @@ let functional = {f: false};
 //     }
 // })
 textArea.addEventListener("keydown", (e) => {
-    if(e.key === 'Enter'){
+    if(e.key === 'Enter' && !sending){
         e.preventDefault()
         const t = (textArea.value.trim());
         if(!t.length){
@@ -32,6 +33,10 @@ function sendChat(text){
     activeChat.innerHTML += `<div class='sender'><p>${text}</p></div>`
 }
 async function sendingProcess(t){
+    if(sending){
+        return;
+    }
+    sending = true;
     textArea.value = '';
     if(t === 'back' && stack.length){ //todo finded bug (it's fixed but not 100%)
         stack.pop();
@@ -68,6 +73,7 @@ function textConverter(t){
 async function generate(text){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
+            sending = false;
             const info = {'{text}' : text, '{name}' : name, '{randFunc}' : randomAnswer, '{stack}' : stack, '{addSelector}' : addSelector};
             text = textConverter(text);
             //const el = data[text];

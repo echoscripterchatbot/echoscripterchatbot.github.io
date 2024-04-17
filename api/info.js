@@ -1,3 +1,5 @@
+import name from '../scripts/visual.js'
+import aboutHayk from "../api/aboutHayk.js";
 const fullSymb = [':)' , '', ")"]
 const info = {
     "hi" : {
@@ -29,8 +31,16 @@ const info = {
         'call' : ['{text}', '{randFunc}'],
         'addRandSymbool' : [')'],
     },
-    // "search info": {
-    //     'answer' : ["Write title info", 'Info title', 'search title'],
+    "WAY" : {
+        'answer' : [`Hello, my name is ${name}. I am a chatbot created by Hayk Antonyan.</br>Read more about Hayk Antonyan`],
+        'select' : ['read about Hayk Antonyan', 'back'],
+    },
+    "R_ABOUT_HAYK" : {
+        'answer' : [aboutHayk],
+        'select' : ['back'],
+    },
+    "search info": {
+        'answer' : ["soon!!!"],
     //     'select' : [],
     //     'functional' : true,
     //     'function' : (text, f) => {
@@ -58,7 +68,7 @@ const info = {
     //     },
     //     'call' : ['{text}', '{addSelector}'],
     //     'addRandSymbool' : fullSymb,
-    // },
+    },
 }
 export const quenstions = Object.keys(info)//or object keys
 
