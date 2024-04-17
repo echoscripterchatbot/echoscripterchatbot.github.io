@@ -1,6 +1,6 @@
 export default [
     {
-        words: ['hello', 'hi'],
+        words: ['hello'],
         replace: 'hi',
     },
     {

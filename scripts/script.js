@@ -53,7 +53,7 @@ function chatToUser(text){
     }
     // selectDiv.classList.remove('write')
     generationElmProcessAnim.classList.remove("active")
-    activeChat.innerHTML += `<div class='chat'><p>${text}</p></div>`
+    activeChat.innerHTML += `<div class='chat'><div><p class="mBottom">${name}</p><p>${text}</p></div></div>`
 }
 function textConverter(t){
     //replace all names
