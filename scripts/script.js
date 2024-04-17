@@ -38,10 +38,13 @@ async function sendingProcess(t){
     }
     sending = true;
     textArea.value = '';
-    if(t === 'back' && stack.length){ //todo finded bug (it's fixed but not 100%)
-        stack.pop();
-        addSelector(stack[stack.length - 1] || []);
+    if(t === 'back' ){ //todo finded bug (it's fixed but not 100%)
         functional.f = false;
+        sending = false;
+        if(stack.length){
+            stack.pop();
+            addSelector(stack[stack.length - 1] || startSelectors);
+        }
         return;
     }
     sendChat(t);
